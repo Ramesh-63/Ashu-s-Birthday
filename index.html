@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>From My Heart 💌</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="entry-popup" class="popup-overlay" onclick="hidePopup()">
+        <div class="popup-content">
+            <h2>🎊 Happy Birthday, Junioreehhhh..!!! 🎊</h2>
+            <p>Tap anywhere to enter your special space 💖</p>
+        </div>
+    </div>
+
+
+    <h1>Just for You 💫</h1>
+
+    <h2 class="birthday-wish">Happy Birthday Juniorehhhyyyyy...!!! 🎉💖<br>Wishing you all the love, laughter & magic
+        today and always ✨</h2>
+
+
+    <img src="./assets/achu.jpg" alt="Ashwini" class="photo">
+
+    <div class="candle-container">
+        <div class="candle-flame"></div>
+    </div>
+
+
+    <!-- <p class="typewriter">Some people walk into your life and make it brighter without even trying Happy Birthday -->
+    <!-- Ashwini 💫</p> -->
+
+    <div class="gift-box" onclick="revealSurprise()"></div>
+
+    <div id="surprise">💖 You've become someone I'll never forget 💖</div>
+
+    <button class="smile-btn" onclick="alert('Then this smile is my gift 🎁✨')">That smile suits you 💖 Tap to keep it
+        💗</button>
+
+    <!-- 💌 From My Heart Section -->
+    <section class="heart-message">
+        <h2>💌 From My Heart</h2>
+        <p>This message is not just a wish... it's a piece of my heart for you 💖</p>
+        <a href="message.html" class="secret-btn">See what I wrote for you 💌</a>
+    </section>
+
+    <section class="slideshow">
+        <h2>Our Moments 📸</h2>
+        <div class="slides">
+            <img src="./assets/Our moments 1.jpg" />
+            <img src="./assets/Our moments 2.jpg" />
+            <img src="./assets/Our moments 3.jpg" />
+            <img src="./assets/Our moments 4.jpg" />
+
+        </div>
+    </section>
+
+    <canvas id="particle-canvas"></canvas>
+
+
+    <audio id="bg-music" loop>
+        <source src="./assets/audio.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <button class="music-toggle" onclick="toggleMusic()">🔇</button>
+
+
+    <!-- Floating Hearts Effect -->
+    <script>
+        function revealSurprise() {
+            document.getElementById('surprise').style.display = 'block';
+
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '60%';
+                heart.style.fontSize = (Math.random() * 20 + 16) + 'px';
+                heart.innerHTML = '💗';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }
+        }
+
+        function hidePopup() {
+            document.getElementById('entry-popup').style.display = 'none';
+        }
+
+        function hidePopup() {
+            document.getElementById('entry-popup').style.display = 'none';
+
+            // User interacted: safe to play with sound
+            const audio = document.getElementById('bg-music');
+            audio.muted = false;      // make sure it isn't muted
+            audio.volume = 0.5;       // optional: adjust volume
+            audio.play().then(() => {
+                console.log("Audio playing successfully!");
+            }).catch((e) => {
+                console.log("Audio play error:", e);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
